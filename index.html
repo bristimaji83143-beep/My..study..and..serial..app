@@ -5,7 +5,7 @@
 
     <style>
         body {
-            margin: 0;
+            margin: 0;a
             font-family: Arial;
             background: linear-gradient(135deg, lightblue, white);
             text-align: center;
@@ -502,6 +502,37 @@ function clearAll() {
 displaySavedContent();
 
 </script>
+</script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = https://ipgpwqupjgurrvbjfowh.supabase.co/rest/v1/
+const SUPABASE_KEY = sb_publishable_NfT2zNXSjgsM50uHPKeGCw_sSiq7LXG
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+async function testConnection() {
+    const { data, error } = await supabaseClient
+        .from("content")
+        .select("id")
+        .limit(1);
+
+    if (error) {
+        console.log("Database error:", error.message);
+        return;
+    }
+
+    console.log("✅ Supabase connected!");
+}
+
+testConnection();
+</script>
+
+</body>
+</html>
 </body>
 </html>
